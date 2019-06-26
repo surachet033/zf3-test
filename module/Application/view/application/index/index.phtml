@@ -1,74 +1,152 @@
-<div class="jumbotron">
-    <h1>Welcome to <span class="zf-green">Zend Framework</span></h1>
+<div class="container background_color">
+  <h2>Search Your Restaurant</h2>
 
-    <p>
-        Congratulations! You have successfully installed the
-        <a href="https://github.com/zendframework/ZendSkeletonApplication" target="_blank">ZF Skeleton Application</a>.
-        You are currently running Zend Framework version <?= \Application\Module::VERSION ?>.
-        This skeleton can serve as a simple starting point for you to begin
-        building your application on ZF.
-    </p>
+  <!-- Input search keyword-->
+  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Enter location..." title="Type in a name" value="Bang Sue">
+  <!--Input search keyword-->
 
-    <p><a class="btn btn-success btn-lg" href="https://github.com/zendframework/zendframework" target="_blank">Fork Zend Framework on GitHub &raquo;</a></p>
+  <!-- Start teble -->
+  <table id="myTable"> <!-- id="myTable" this part from js/map-search.js -->
+    <tr class="header">
+      <th style="width:40%; text-align:center;">Location</th>
+      <th style="width:40%; text-align:center;">Name</th>
+      <th style="width:20%; text-align:center;">Map</th>
+    </tr>
+
+    <!-- id="map1" untill id="map26" this part from js/localtion.js  -->
+    <tr>
+      <td>Charoen Nakhon Road, Khlong San, Bangkok, 10600, Bangkok Thailand</td>
+      <td>Thong Fah Thai Restaurant</td>
+      <td><div class="m-bottom-10" id="map1" style="width:200px; height:130px;">&nbsp;</div></td>
+    </tr>
+    <tr>
+      <td>Sukhumvit Suites Hotel between Sukhumvit Soi 21 and Sukhumvit Soi 23 Bangkok, Thailand 10110</td>
+      <td>Indulge Fusion Food & Cocktail Bar</td>
+      <td><div class="m-bottom-10" id="map2" style="width:200px; height:130px;">&nbsp;</div></td>
+    </tr>
+    <tr>
+      <td>199 Sukhumvit Soi 22, Klong Ton, Klong Toey Bangkok Marriott Marquis Queen’s Park, Bangkok 10110 Thailand</td>
+      <td>Goji Kitchen + Bar</td>
+      <td><div class="m-bottom-10" id="map3" style="width:200px; height:130px;">&nbsp;</div></td>
+    </tr>
+    <tr>
+      <td>262 Surawong Road Si Phraya, Bangkok 10500 Thailand</td>
+      <td>The Lobby Lounge</td>
+      <td><div class="m-bottom-10" id="map4" style="width:200px; height:130px;">&nbsp;</div></td>
+    </tr>
+    <tr>
+      <td>262, Surawong Road Si Phraya, Bang Rak, Bangkok 10500 Thailand</td>
+      <td>Praya Kitchen</td>
+      <td><div class="m-bottom-10" id="map5" style="width:200px; height:130px;">&nbsp;</div></td>
+    </tr>
+    <tr>
+      <td>518/8 Ploenchit Road Renaissance Bangkok Ratchaprasong Hotel, Bangkok 10330 Thailand</td>
+      <td>Flavors</td>
+      <td><div class="m-bottom-10" id="map6" style="width:200px; height:130px;">&nbsp;</div></td>
+    </tr>
+    <tr>
+      <td>199 Sukhumvit Soi 22, Klong Ton, Klong Toey Bangkok Marriott Marquis Queen’s Park, Bangkok 10110 Thailand</td>
+      <td>Siam Tea Room</td>
+      <td><div class="m-bottom-10" id="map7" style="width:200px; height:130px;">&nbsp;</div></td>
+    </tr>
+    <tr>
+      <td>1/6, Prachathipatai Rd. Ban Phan Thom, Phra Nakhon, Bangkok 10200 Thailand</td>
+      <td>The Family</td>
+      <td><div class="m-bottom-10" id="map8" style="width:200px; height:130px;">&nbsp;</div></td>
+    </tr>
+    <tr>
+      <td>257/1-3 Charoennakorn Road Anantara Bangkok Riverside, Bangkok 10600, Thailand</td>
+      <td>Riverside Terrace</td>
+      <td><div class="m-bottom-10" id="map9" style="width:200px; height:130px;">&nbsp;</div></td>
+    </tr>
+    <tr>
+      <td>155/1 Soi Mahadlekluang 1, Ratchadamri Road Courtyard By Marriott Hotel Bangkok, Bangkok 10330 Thailand</td>
+      <td>Momo Cafe</td>
+      <td><div class="m-bottom-10" id="map10" style="width:200px; height:130px;">&nbsp;</div></td>
+    </tr>
+    <tr>
+      <td>1450/3, Soi Charoen Krung 42/1 Bang Rak, Bang Rak, Bangkok 10500 Thailand</td>
+      <td>Zabbanglove</td>
+      <td><div class="m-bottom-10" id="map11" style="width:200px; height:130px;">&nbsp;</div></td>
+    </tr>
+    <tr>
+      <td>2 Charoen Krung Road Soi 30 Royal Orchid Sheraton Hotel, Bangkok 10500 Thailand</td>
+      <td>Thara Thong</td>
+      <td><div class="m-bottom-10" id="map12" style="width:200px; height:130px;">&nbsp;</div></td>
+    </tr>
+    <tr>
+      <td>250 Sukhumvit Rd., Khlong Toei, Khlong Toei G Floor - Bar Su, Sheraton Grande Sukhumvit Hotel. B.T.S. Asoke: Gate 5, Bangkok 10110 Thailand</td>
+      <td>DID - Dine in the Dark</td>
+      <td><div class="m-bottom-10" id="map13" style="width:200px; height:130px;">&nbsp;</div></td>
+    </tr>
+    <tr>
+      <td>403-403/1, 407-407/1 Sukhumvit Road, BTS Asoke exit 6, in between soi21 and soi23 Next to Interchange 21 Tower, Opposite Exchange Tower corner of 21, Bangkok 10110 Thailand</td>
+      <td>Indulge Fusion Food & Cocktail Bar</td>
+      <td><div class="m-bottom-10" id="map14" style="width:200px; height:130px;">&nbsp;</div></td>
+    </tr>
+    <tr>
+      <td>1695 Phaholyothin Road, Chatuchak Centara Grand at Central Plaza Ladprao Bangkok, Bangkok 10900 Thailand</td>
+      <td>Suan Bua</td>
+      <td><div class="m-bottom-10" id="map15" style="width:200px; height:130px;">&nbsp;</div></td>
+    </tr>
+    <tr>
+      <td>220 Petchaburi Road Ratchathewi, Bangkok 10400 Thailand</td>
+      <td>View Rooftop Bar Bangkok</td>
+      <td><div class="m-bottom-10" id="map16" style="width:200px; height:130px;">&nbsp;</div></td>
+    </tr>
+    <tr>
+      <td>250 Sukhumvit Road 1F, Sheraton Grande Sukhumvit, Bangkok 10110 Thailand</td>
+      <td>The Living Room</td>
+      <td><div class="m-bottom-10" id="map17" style="width:200px; height:130px;">&nbsp;</div></td>
+    </tr>
+    <tr>
+      <td>1959/1 Charoen Krung 75 Road Khwaeng Wat Prayakrai, Khet Bangkholaem, Bangkok 10120 Thailand</td>
+      <td>Kurissara Thai Cuisine</td>
+      <td><div class="m-bottom-10" id="map18" style="width:200px; height:130px;">&nbsp;</div></td>
+    </tr>
+    <tr>
+      <td>4 Sukhumvit Road Soi 2 JW Marriott Hotel Bangkok, Bangkok 10110 Thailand</td>
+      <td>BBCO</td>
+      <td><div class="m-bottom-10" id="map19" style="width:200px; height:130px;">&nbsp;</div></td>
+    </tr>
+    <tr>
+      <td>89 Soi Wat Suan Plu, New Road Bangrak, Bangkok 10500 Thailand</td>
+      <td>Salathip</td>
+      <td><div class="m-bottom-10" id="map20" style="width:200px; height:130px;">&nbsp;</div></td>
+    </tr>
+    <tr>
+      <td>847 Petchburi Road Amari Watergate Bangkok / 4th floor, Bangkok 10400 Thailand</td>
+      <td>Amaya Food Gallery at Amari Watergate Bangkok</td>
+      <td><div class="m-bottom-10" id="map21" style="width:200px; height:130px;">&nbsp;</div></td>
+    </tr>
+    <tr>
+      <td>259 Sukhumvit 19, 7th Floor, Sukhumvit Road The Westin Grande Sukhumvit Bangkok, Bangkok 10110 Thailand</td>
+      <td>Seasonal Tastes</td>
+      <td><div class="m-bottom-10" id="map22" style="width:200px; height:130px;">&nbsp;</div></td>
+    </tr>
+    <tr>
+      <td>6 Soi Tha Tien, Maharaj Road Phra Borom Maha Ratchawang, Phra Nakhon, Bangkok 10200 Thailand</td>
+      <td>The Sixth</td>
+      <td><div class="m-bottom-10" id="map23" style="width:200px; height:130px;">&nbsp;</div></td>
+    </tr>
+    <tr>
+      <td>5 Song Prapha Road Si Kan, Don Mueang, Bangkok 10210 Thailand</td>
+      <td>Baik Baik</td>
+      <td><div class="m-bottom-10" id="map24" style="width:200px; height:130px;">&nbsp;</div></td>
+    </tr>
+    <tr>
+      <td>2 North Sathorn Road Sofitel So Bangkok, Bangkok 10500 Thailand</td>
+      <td>Red Oven</td>
+      <td><div class="m-bottom-10" id="map25" style="width:200px; height:130px;">&nbsp;</div></td>
+    </tr>
+    <tr>
+      <td>82/21 Prachachuen 24, Bang Sue, Bangkok 10800 Thailand</td>
+      <td>Chimethai</td>
+      <td><div class="m-bottom-10" id="map26" style="width:200px; height:130px;">&nbsp;</div></td>
+    </tr>
+  </table>
+<!-- End teble -->
 </div>
 
-<div class="row">
-
-    <div class="col-md-4">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Follow Development</h3>
-            </div>
-            <div class="panel-body">
-                <p>
-                    Zend Framework is under active development. If you are
-                    interested in following the development of ZF, you can check
-                    <a href="http://framework.zend.com/blog/">ZF dev blog</a>,
-                    and <a href="https://github.com/issues?utf8=%E2%9C%93&amp;q=is:issue+org:zendframework">ZF issue tracker</a>
-                    (link requires a GitHub account). This is a great resource
-                    for staying up to date with the latest developments!
-                </p>
-
-                <p><a class="btn btn-success pull-right" href="http://framework.zend.com/" target="_blank">ZF Development Portal &raquo;</a></p>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-4">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Discover Modules</h3>
-            </div>
-            <div class="panel-body">
-                <p>
-                    The community is working on developing a community site to
-                    serve as a repository and gallery for ZF modules. The
-                    project is available <a href="https://github.com/zendframework/modules.zendframework.com">on GitHub</a>.
-                    The site is currently live and currently contains a list of
-                    some of the modules already available for ZF.
-                </p>
-
-                <p><a class="btn btn-success pull-right" href="http://modules.zendframework.com/" target="_blank">Explore ZF Modules &raquo;</a></p>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-4">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Help &amp; Support</h3>
-            </div>
-            <div class="panel-body">
-                <p>
-                    If you need any help or support while developing with ZF,
-                    you may reach us via IRC: <a href="irc://irc.freenode.net/zftalk">#zftalk on Freenode</a>.
-                    We'd love to hear any questions or feedback you may have
-                    regarding this release. Alternatively, you may subscribe
-                    and post questions to the <a href="http://framework.zend.com/archives/">mailing lists</a>.
-                </p>
-
-                <p><a class="btn btn-success pull-right" href="http://webchat.freenode.net?channels=zftalk" target="_blank">Ping us on IRC &raquo;</a></p>
-            </div>
-        </div>
-    </div>
-</div>
+<!--- API Connect to google map --->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZ1DSjrgk2InB4Hm5cIhFwSgVg9VcjB4E&signed_in=true&callback=initMap"></script>
